@@ -1,2 +1,2 @@
-# Krishok-Bangla
+# KRISHOK_BANGLA
 Agricultural Management System
