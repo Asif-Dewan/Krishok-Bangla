@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
     },
     role : {
         type : String,
-        enum : ['farmer', 'buyer'],
+        enum : ['farmer', 'dealer'],
       
 },
     email : {
