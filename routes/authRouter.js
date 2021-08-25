@@ -6,5 +6,4 @@ const router = express.Router()
  
 router.get('/signup',authController.signupGetController)
 
-
 module.exports = router
