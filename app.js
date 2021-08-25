@@ -1,6 +1,10 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const app = express()
+
+// import router
+const authRouter = require('./routes/authRouter')
+
 // set up view engine
 app.set('view engine','ejs')
 app.set('views','views')
@@ -13,6 +17,8 @@ const middleware = [
 ]
  
 app.use(middleware)
+
+app.use('/auth',authRouter)
 
 app.get('/',(req,res) =>{
     res.render('pages/homepage',{title: 'Home page'})
