@@ -7,8 +7,7 @@ const router = express.Router()
 router.get('/signup',authController.signupGetController)
 router.post('/signup',authController.signupPostController)
 
- 
-
+router.get('/login',authController.loginGetController)
  
 
 module.exports = router
