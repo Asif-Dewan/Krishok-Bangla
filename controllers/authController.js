@@ -5,7 +5,7 @@ exports.signupGetController = (req,res,next) =>{
 }
 exports.signupPostController = async (req,res,next) =>{
     
-    let {name,phone,address,nid,role,email,password} = req.body
+    let { name,phone,address,nid,role,email,password} = req.body
     try{
         let user = new User({
             name,
