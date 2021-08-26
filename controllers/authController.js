@@ -24,3 +24,7 @@ exports.signupPostController = async (req,res,next) =>{
         next(err)
     }
 }
+
+exports.loginGetController = (req,res,next) =>{
+    res.render('pages/auth/login', {title : 'Login Your Account'})
+}
