@@ -6,7 +6,11 @@ const errorFormatter = require('../utils/validationErrorFormatter')
 const User = require('../models/userModel')
 
 exports.signupGetController = (req,res,next) =>{
-    res.render('pages/auth/signup', {title : 'Register Your Account'})
+    res.render('pages/auth/signup', {
+        title : 'Register Your Account' , 
+        error : {}, 
+        value : {}
+    })
 }
 exports.signupPostController = async (req,res,next) =>{
     let {name,phone,address,nid,role,email,password} = req.body
