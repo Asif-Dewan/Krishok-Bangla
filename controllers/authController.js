@@ -1,17 +1,29 @@
 const bcrypt = require('bcrypt')
+const {validationResult} = require('express-validator')
+
+const errorFormatter = require('../utils/validationErrorFormatter')
+
 const User = require('../models/userModel')
 
 exports.signupGetController = (req,res,next) =>{
     res.render('pages/auth/signup', {title : 'Register Your Account'})
 }
-
-exports.loginGetController = (req,res,next) =>{
-    res.render('pages/auth/login', {title : 'Login Your Account'})
-}
-
 exports.signupPostController = async (req,res,next) =>{
-    console.log(req.body)
     let {name,phone,address,nid,role,email,password} = req.body
+    let errors = validationResult(req).formatWith(errorFormatter)
+ 
+    if(!errors.isEmpty()){
+        return res.render('pages/auth/signup', 
+        {
+            title : 'Register Your Account',
+            error : errors.mapped(),
+            value : {
+                name,phone,address,nid,email,password
+            }
+            
+        })
+    }
+ 
     try{
         let hashedPassword = await bcrypt.hash(password,11)
         let user = new User({
@@ -31,6 +43,12 @@ exports.signupPostController = async (req,res,next) =>{
         next(err)
     }
 }
+
+
+exports.loginGetController = (req,res,next) =>{
+    res.render('pages/auth/login', {title : 'Login Your Account'})
+}
+
 exports.loginPostController = async (req,res,next) =>{
     let {email, password} = req.body
  
