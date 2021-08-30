@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const session = require('express-session')
+const MongoDBStore = require('connect-mongodb-session')(session);
 const app = express()
 
 // import router
@@ -10,6 +11,13 @@ const authRouter = require('./routes/authRouter')
 app.set('view engine','ejs')
 app.set('views','views')
  
+const DB = `mongodb+srv://Krishok_Bangla:Krishok@bangla@cluster0.pdcxb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+const store = new MongoDBStore({
+    uri: DB,
+    collection: 'sessions',
+    expires : 1000 * 60 * 60 * 2
+  });
+  
 // middleware array
 const middleware = [
     express.static('public'),
@@ -31,7 +39,7 @@ app.use('/auth',authRouter)
 app.get('/',(req,res) =>{
     res.render('pages/homepage',{title: 'Home page'})
 })
-const DB = `mongodb+srv://Krishok_Bangla:Krishok@bangla@cluster0.pdcxb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+
 mongoose.connect(DB,({
     useNewUrlParser : true,
     useCreateIndex : true,
