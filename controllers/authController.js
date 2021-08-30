@@ -64,6 +64,8 @@ exports.loginPostController = async (req,res,next) =>{
                 message : 'Invalid Credentials'
             })
         }
+        req.session.isLoggedIn = true
+        req.session.user = user
         res.setHeader ('set-Cookie', 'isLoggedIn=true')
         res.render('pages/auth/login' , {title : 'Login Your Account'})
  
