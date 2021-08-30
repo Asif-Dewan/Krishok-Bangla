@@ -1,5 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose")
+const session = require('express-session')
 const app = express()
 
 // import router
@@ -13,7 +14,14 @@ app.set('views','views')
 const middleware = [
     express.static('public'),
     express.urlencoded({extended : true}),
-    express.json()
+    express.json(),
+    session({
+        secret : process.env.SECRET_KEY || 'SECRET_KEY',
+        resave : false,
+        saveUninitialized : false,
+        store : store
+    }),
+
 ]
  
 app.use(middleware)
