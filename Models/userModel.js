@@ -1,4 +1,10 @@
 const mongoose = require('mongoose')
+ 
+/**
+ * This is the mongoose user schema model. It shows how the user's data will save in the
+ * database
+ * @class userSchema
+ */
 
 const userSchema = new mongoose.Schema({
     name : {
