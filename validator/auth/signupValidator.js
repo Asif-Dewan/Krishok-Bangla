@@ -28,7 +28,7 @@ module.exports = [
     body('role')
         .not()
         .isEmpty()
-        .isIn(['farmer','buyer'])
+        .isIn(['farmer','dealer'])
         .withMessage('Role is required')
     ,
     body('email')
