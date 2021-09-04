@@ -6,7 +6,7 @@ const errorFormatter = require('../utils/validationErrorFormatter')
 const User = require('../models/userModel')
 /**
  * This is the controller for getting the signup page. It will render the signup page for * the User
- * @module controller/signupGetController
+ * @function controller/signupGetController
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @param {Function} next - Express next middleware function
@@ -25,7 +25,7 @@ exports.signupGetController = (req,res,next) =>{
 * provide wrong input. We are hashing the password for security purpose. And will 
 * redirect the user if the signup process is successful. And if there is an Error, it  
 * will catch error globally.
-* @module controller/signupPostController
+* @function controller/signupPostController
 * @param {Object} req - Express request object
 * @param {Object} res - Express response object
 * @param {Function} next - Express next middleware function
@@ -74,7 +74,7 @@ exports.signupPostController = async (req,res,next) =>{
 /**
  * This is the controller for getting the login page. It will render the login page for 
  * the User.
- * @module controller/LoginGetController
+ * @function controller/LoginGetController
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @param {Function} next - Express next middleware function
@@ -91,7 +91,7 @@ exports.loginGetController = (req,res,next) =>{
  * given input. If the request is successful it will redirect the User to respective pages 
  * based on their roles. And if any errors occurs, it will be handled by global error 
  * handler.
- * @module controller/LoginPostController
+ * @function controller/LoginPostController
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @param {Function} next - Express next middleware function
@@ -122,7 +122,7 @@ exports.loginPostController = async (req,res,next) =>{
 /**
  * This is the controller for logout page. It will render the login page for the User
  * and destroy session from the database
- * @module controller/LogoutController
+ * @function controller/LogoutController
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @param {Function} next - Express next middleware function
