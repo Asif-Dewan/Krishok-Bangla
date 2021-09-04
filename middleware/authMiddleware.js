@@ -2,7 +2,7 @@ const User = require('../models/userModel')
  
 /**
  * This middleware function will bind the user with request object.
- * @function authMiddleware/bindUser
+ * @module authMiddleware/bindUser
  *
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
@@ -29,7 +29,7 @@ exports.bindUserWithRequest = () =>{
 }
 /**
  * This middleware function will check if the user is authenticated or not.
- * @function authMiddleware/isAuthenticated
+ * @module authMiddleware/isAuthenticated
  *
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
@@ -45,7 +45,7 @@ exports.isAuthenticated = (req,res,next) =>{
 }
  /**
  * This middleware function will check if the user is Unauthenticated or not.
- * @function authMiddleware/isUnAuthenticated
+ * @module authMiddleware/isUnAuthenticated
  *
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
