@@ -13,7 +13,7 @@ router.post('/signup',authMiddleware.isUnAuthenticated,signupValidator,authContr
 router.get('/login',authMiddleware.isUnAuthenticated,authController.loginGetController)
 router.post('/login',authMiddleware.isUnAuthenticated,loginValidator,authController.loginPostController)
  
-router.get('/logout',authMiddleware .isUnAuthenticated,authController.logoutController)
+router.get('/logout',authController.logoutController)
  
 module.exports = router
  
