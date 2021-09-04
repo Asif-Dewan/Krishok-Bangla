@@ -60,7 +60,11 @@ exports.signupPostController = async (req,res,next) =>{
         })
        let createdUser = await user.save() 
        console.log('user created successfully',createdUser)
-       res.render('pages/auth/signup', {title : 'Register Your Account'})
+       res.render('pages/auth/signup', {
+           title : 'Register Your Account',
+           error :{},
+           value :{}
+        })
     }catch(err){
         console.log(err)
         next(err)
