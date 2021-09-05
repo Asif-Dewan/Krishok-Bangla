@@ -49,6 +49,12 @@ app.get('/',(req,res) =>{
     res.render('pages/homepage',{title: 'Home page'})
 })
 
+app.set('views', path.join(_dirname,'views'))
+app.set('view engine','ejs')
+
+app.get('/',(req,res) =>{
+    res.render('pages/auth/marketPlace',{title: 'Market Place'})
+})
  
 
 mongoose.connect(DB,({
