@@ -85,45 +85,6 @@ const displayProductItems = items => {
   }
 };
 
-/*
-=============
-Filtering
-=============
- */
-
-const filterBtn = document.querySelectorAll(".filter-btn");
-const categoryContainer = document.getElementById("category");
-
-if (categoryContainer) {
-  categoryContainer.addEventListener("click", async e => {
-    const target = e.target.closest(".section__title");
-    if (!target) return;
-
-    const id = target.dataset.id;
-    const products = await getProducts();
-
-    if (id) {
-      // remove active from buttons
-      Array.from(filterBtn).forEach(btn => {
-        btn.classList.remove("active");
-      });
-      target.classList.add("active");
-
-      // Load Products
-      let menuCategory = products.filter(product => {
-        if (product.category === id) {
-          return product;
-        }
-      });
-
-      if (id === "All Products") {
-        displayProductItems(products);
-      } else {
-        displayProductItems(menuCategory);
-      }
-    }
-  });
-}
 
 /*
 =============
