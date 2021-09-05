@@ -1,0 +1,17 @@
+{
+    "source": {
+        "include": ["controllers/authController.js","middleware/authMiddleware.js","Models/userModel.js","functions/MarketPlace.js","functions/addPost.js","Models/marketPlaceModel.js","Models/OrderInfo.js"],
+        "includePattern": ".js$",
+        "excludePattern": "(node_modules/|docs)"
+    },
+    "sourceType": "module",
+    "plugins": ["plugins/markdown"],
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true
+    },
+    "opts": {
+        "recurse": true,
+        "destination": "./docs/"
+    }
+}
